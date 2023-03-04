@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import css from './Modal.module.css'
+import PropTypes from 'prop-types';
+
 
 class Modal extends Component{
   componentDidMount() {
     window.addEventListener('keydown', e =>{
       if(e.code ==="Escape"){
-        console.log('escape')
         this.props.keyClose();
       }
     })
@@ -20,6 +21,12 @@ class Modal extends Component{
       </div>
     )
   }
+}
+
+Modal.propTypes = {
+  keyClose: PropTypes.func,
+  onClickOverlay: PropTypes.func,
+  largeImg: PropTypes.string
 }
 
 export default Modal;

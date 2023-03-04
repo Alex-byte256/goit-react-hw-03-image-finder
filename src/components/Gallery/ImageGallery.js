@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import css from './ImageGallery.module.css'
 import ImageGalleryItem from './ImageGalleryItem';
+import PropTypes from 'prop-types';
 
 class ImageGallery extends  Component{
 
   render() {
-    console.log(this.props.hits)
     return(
       <ul className={css.ImageGallery}>
         {this.props.hits.map(el => {
@@ -14,6 +14,10 @@ class ImageGallery extends  Component{
       </ul>
     )
   }
+}
+
+ImageGallery.propTypes = {
+  onSubmit: PropTypes.arrayOf(PropTypes.shape)
 }
 
 export default ImageGallery;
